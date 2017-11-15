@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import Container from './Container.js';
 import Navigation from './Navigation.js';
+import SearchBar from './SearchBar.js';
 
-class Flowers extends Component {
+class SearchLayout extends Component {
 	render() {
 	    return (
 	    	<div>
+	    	<SearchBar />
 	    	<Navigation />
-			<Container query="flowers" />
+	    	<Container />
 			</div>
+
 		);
 }
 }
 
-export default Flowers;
+export default SearchLayout;

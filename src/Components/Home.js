@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import Container from './Container.js';
 import Navigation from './Navigation.js';
 
-class Flowers extends Component {
+class Home extends Component {
 	render() {
 	    return (
 	    	<div>
 	    	<Navigation />
-			<Container query="flowers" />
+			<div>Or <a href="/search">search</a> for your favorite images</div>
 			</div>
 		);
 }
 }
 
-export default Flowers;
+export default Home;
+
