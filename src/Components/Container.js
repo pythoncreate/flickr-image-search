@@ -10,31 +10,42 @@ class Container extends Component {
   constructor (){
     super();
     this.state = {
-        imgs:[]
+        imgs:[],
+        query: '',
+        loading: true
     }
   }
 
-  componentDidMount(tags='cat') {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${tags}&per_page=24&format=json&nojsoncallback=1`)
-		.then(response => {
-			this.setState({ 
-        imgs: response.data.photos.photo
-      });
-		})
-		.catch(err => {
-			console.log('Error happened during fetching!', err);
-		});
+  componentDidMount() {
+    this.performSearch();
+  
 }
 
+  performSearch = (query = 'dogs') => {
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
+    .then(response => {
+      this.setState({ 
+        imgs: response.data.photos.photo,
+        loading: false
+      });
+    })
+    .catch(err => {
+      console.log('Error happened during fetching!', err);
+    });
+  }
 
     render() {
         return (
-          <div className="container">
-          <SearchBar />
-          <Navigation />
-          <Photos data={this.state.imgs}/>
-          </div>
-          );
+            <div className="container">
+            <SearchBar onSearch={this.performSearch}/>
+             <Navigation />
+              {
+                (this.state.loading)
+                ? <p>Loading....</p>
+                : <Photos data={this.state.imgs}/>
+              }
+            </div>
+            );
     }
 }
 export default Container;

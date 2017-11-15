@@ -4,17 +4,27 @@ class SearchBar extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { term: ''};
+        this.state = { searchText: ''};
 
+    }
+
+    onSearchChange = e => {
+        this.setState({searchText: e.target.value});
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.onSearch(this.state.searchText);
+        e.currentTarget.reset();
     }
 
     render () {
         return (
-            <form className="search-form">
+            <form className="search-form" onSubmit={this.handleSubmit}>
             <input
-                value = {this.state.term}
+                value = {this.state.searchText}
                 type="search"
-                onChange={event => this.setState({ term: event.target.value})}
+                onChange={this.onSearchChange}
                 name="search"
                 placeholder="Search" required/>
             <button type="submit" className="search-button">
