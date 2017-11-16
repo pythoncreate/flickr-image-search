@@ -1,6 +1,7 @@
 import React from 'react';
 import Photo from './Photo.js';
 import NoImages from './NoImages.js';
+import Title from './Title.js';
 
 const Photos = props => {
 
@@ -16,7 +17,7 @@ const Photos = props => {
 	} else {
 		images = <NoImages />
 	}
-	
+
 	return (
 	    <div className="photo-container">
 	    <h2>Results</h2>
