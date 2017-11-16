@@ -5,7 +5,7 @@ import Navigation from './Navigation.js';
 import Photos from './Photos.js';
 import SearchBar from './SearchBar.js';
 
-class Container extends Component {
+class Search extends Component {
 
   constructor (props){
     super(props);
@@ -39,6 +39,7 @@ class Container extends Component {
     render() {
         return (
             <div className="container">
+            <SearchBar onSearch={this.performSearch}/>
               {
                 (this.state.loading)
                 ? <p>Loading....</p>
@@ -48,4 +49,4 @@ class Container extends Component {
             );
     }
 }
-export default Container;
+export default Search;
