@@ -5,28 +5,29 @@ import Navigation from './Navigation.js';
 import Photos from './Photos.js';
 import SearchBar from './SearchBar.js';
 
-class Search extends Component {
+class SearchLayout extends Component {
 
-  constructor (props){
-    super(props);
+  constructor (){
+    super();
     this.state = {
         imgs:[],
-        query: this.props.query,
+        query: '',
         loading: true
     }
   }
 
   componentDidMount() {
-    this.performSearch();
+
   
 }
 
-  performSearch = (query = this.state.query) => {
+  performSearch = (query) => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
     .then(response => {
       this.setState({ 
         imgs: response.data.photos.photo,
-        loading: false
+        loading: false,
+        query: query
       });
     })
     .catch(err => {
@@ -34,12 +35,11 @@ class Search extends Component {
     });
   }
 
-//<SearchBar onSearch={this.performSearch}/>
-
     render() {
         return (
             <div className="container">
             <SearchBar onSearch={this.performSearch}/>
+            <h2>Images of {this.state.query}</h2>
               {
                 (this.state.loading)
                 ? <p>Loading....</p>
@@ -49,4 +49,4 @@ class Search extends Component {
             );
     }
 }
-export default Search;
+export default SearchLayout;

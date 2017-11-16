@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import Clouds from './Components/Clouds.js';
 import Flowers from './Components/Flowers.js';
 import Sunset from './Components/Sunset.js';
-import Search from './Components/Search.js';
+import SearchLayout from './Components/SearchLayout.js';
 import Home from './Components/Home.js';
 
 
@@ -15,7 +15,7 @@ const App = () => (
     <BrowserRouter>
 	    <div>
 	    <Route exact path='/' component = {Home} />
-	    <Route path ='/search' component = {Search}/>
+	    <Route path ='/search' component = {SearchLayout}/>
 	    <Route path='/clouds' component ={Clouds} />
 	    <Route path='/sunsets' component = {Sunset} />
 	    <Route path='/flowers' component = {Flowers} />

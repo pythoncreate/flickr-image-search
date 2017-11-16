@@ -8,7 +8,7 @@ class Sunset extends Component {
 	    return (
 	    	<div>
 	    	<Navigation />
-			<Container query="sunset" />
+			<Container query="sunsets" />
 			</div>
 		);
 }

@@ -39,10 +39,11 @@ class Container extends Component {
     render() {
         return (
             <div className="container">
+            <h2>Images of {this.state.query}</h2>
               {
                 (this.state.loading)
                 ? <p>Loading....</p>
-                : <Photos data={this.state.imgs}/>
+                : <Photos data={this.state.imgs} />
               }
             </div>
             );
