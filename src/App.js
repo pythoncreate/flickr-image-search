@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import Clouds from './Components/Clouds.js';
 import Flowers from './Components/Flowers.js';
 import Sunset from './Components/Sunset.js';
