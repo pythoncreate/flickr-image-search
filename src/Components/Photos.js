@@ -4,7 +4,6 @@ import NoImages from './NoImages.js';
 
 const Photos = props => {
 	const results = props.data;
-	const title = props.name;
 	let images;
 	if(results.length > 0) {
 		images = results.map(image => 

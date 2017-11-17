@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import apiKey from './config.js';
-import Navigation from './Navigation.js';
 import Photos from './Photos.js';
-import SearchBar from './SearchBar.js';
 
 class Container extends Component {
 
